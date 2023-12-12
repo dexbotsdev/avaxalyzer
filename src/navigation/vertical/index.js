@@ -46,26 +46,6 @@ const navigation = () => {
       path: 'https://t.me/AvaxaLyzerBot'
     },
     {
-      title: 'Partnerships',
-      icon: Unity,
-      path: '/partnerships'
-    },,
-    {
-      title: 'Tokenomics',
-      icon: GoogleCirclesExtended,
-      path: '/tokenomics'
-    },
-    {
-      title: 'Whitepaper',
-      icon: MessageOutline,
-      path: '/whitepaper'
-    }, 
-    {
-      title: 'Roadmap',
-      icon: CalendarBlankOutline,
-      path: '/roadmap'
-    },
-    {
       title: 'Community',
       icon: HomeOutline, 
       externalLink: true,
