@@ -32,6 +32,9 @@ import axios from 'axios';
 import Backdrop from '@mui/material/Backdrop';
 import HoneypotCheckerCaller from 'src/api/HoneypotCheckerCaller';
 import Web3 from 'web3';
+import { GoPlusLabs } from '@normalizex/gopluslabs-api';
+const goPlus = new GoPlusLabs();
+
 const {
   RPC_BSC,
   PANCAKE_SWAP_ROUTER_ADDRESS,
