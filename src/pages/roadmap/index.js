@@ -30,7 +30,7 @@ const WhitepaperPdf = () => {
     return (
         <DatePickerWrapper>
             <Grid container spacing={2} className='match-height' sx={{ m: 5 }}> 
-                    <Worker workerUrl={`https://unpkg.com/pdfjs-dist@3.3.122/build/pdf.worker.min.js`}>
+                    <Worker workerUrl={`https://unpkg.com/pdfjs-dist@3.6.172/build/pdf.worker.min.js`}>
 
                         <Viewer fileUrl="/roadmap.pdf"
                             renderPage={renderPage}

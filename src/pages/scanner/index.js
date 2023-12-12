@@ -357,6 +357,53 @@ const Dashboard = () => {
           
 
         
+      }else if (chainId =='avalanche') {
+
+        const chain = 43114;//Binance Smart Chain
+        const ITM =tokenAddress;//SCAM TOKEN!
+        const apiKey='U5FAN98S5XNH5VI83TI4H35R9I4TDCKEJY';
+
+        const go = goPlus.tokenSecurity(chain, ITM).then((token) => { 
+          console.log(token);
+          }).catch((err) => null);
+          let verified=false;
+          let honeyPotCheck=false;
+          const {
+            buyGas,
+            sellGas,
+            buyTax,
+            sellTax
+          } = go;
+          const verificationdata = await axios
+          .get(`https://api.snowtrace.io/api?module=contract&action=getabi&address=${tokenAddress}&apikey=${apiKey}`)
+          .then(esp =>esp.data)
+          .catch((err) => null);
+
+
+          console.log(verificationdata);
+
+          if(verificationdata.status == '0'){ verified=false; honeyPotCheck=true;}
+
+          setTokenInfo({
+            name:name,
+            symbol:symbol,
+            network:String(chainId).toUpperCase(),
+            dexId:String(dexId).toUpperCase(),
+            h1:h1,
+            buygas:buyGas,
+            sellgas:sellGas,
+            buyTax:buyTax,
+            sellTax:sellTax,
+            liquidity:liquidity, 
+            priceUsd:Number(priceUsd).toFixed(8)+' (in usd )', 
+            pairCreatedAt:new Date(pairCreatedAt).toLocaleDateString(),
+            isHoneyPot:honeyPotCheck, 
+            verified:verified,
+            blacklisted:!honeyPotCheck
+          })
+          setIsLoading(false);
+
+
       }
     }
 
@@ -370,7 +417,7 @@ const Dashboard = () => {
   };
 
   useEffect(()=>{
-     getTokenDetails('0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82');
+     getTokenDetails('0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7');
   },[])
  
   return (
