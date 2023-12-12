@@ -424,7 +424,7 @@ const Dashboard = () => {
   };
 
   useEffect(()=>{
-     getTokenDetails('0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7');
+     getTokenDetails('0x86f146F3C14EfF9b5EB2Da5D7E3CdcB1e8B9021d');
   },[])
  
   return (
