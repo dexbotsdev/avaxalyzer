@@ -3,7 +3,7 @@ import CircleOutline from 'mdi-material-ui/CircleOutline'
 
 const themeConfig = {
   // ** Layout Configs
-  templateName: 'Avaxalyzer' /* App Name */,
+  templateName: 'AvaScanner' /* App Name */,
   layout: 'vertical' /* vertical | horizontal */,
   mode: 'dark' /* light | dark */,
   direction: 'ltr' /* ltr | rtl */,
