@@ -366,17 +366,21 @@ const Dashboard = () => {
         const ITM =tokenAddress;//SCAM TOKEN!
         const apiKey='U5FAN98S5XNH5VI83TI4H35R9I4TDCKEJY';
 
-        const go = goPlus.tokenSecurity(chain, ITM).then((token) => { 
-          console.log(token);
-          }).catch((err) => null);
+        const gom = await axios.get(`https://api.gopluslabs.io/api/v1/token_security/43114?contract_addresses=${tokenAddress}`).then(i=>i).catch(r=>null);
           let verified=false;
           let honeyPotCheck=false;
-          const {
-            buyGas,
-            sellGas,
-            buyTax,
-            sellTax
-          } = go;
+          
+          
+          const go = gom!=null? Object.values(gom.data.result)[0]: null;
+
+          console.log(go);
+
+          const buyTax = Number(Number(go.buy_tax)*100).toFixed(2)
+          const sellTax = Number(Number(go.sell_tax)*100).toFixed(2)
+
+          const buyGas = Number(go.buy_gas)*5100
+          const sellGas = Number(go.buy_gas)*5821
+
           const verificationdata = await axios
           .get(`https://api.snowtrace.io/api?module=contract&action=getabi&address=${tokenAddress}&apikey=${apiKey}`)
           .then(esp =>esp.data)
