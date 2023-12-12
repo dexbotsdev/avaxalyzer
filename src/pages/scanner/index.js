@@ -368,7 +368,7 @@ const Dashboard = () => {
 
         const gom = await axios.get(`https://api.gopluslabs.io/api/v1/token_security/43114?contract_addresses=${tokenAddress}`).then(i=>i).catch(r=>null);
           let verified=false;
-          let honeyPotCheck=false;
+          let honeyPotCheck='PASSED';
           
           
           const go = gom!=null? Object.values(gom.data.result)[0]: null;
@@ -389,8 +389,8 @@ const Dashboard = () => {
 
           console.log(verificationdata);
 
-          if(verificationdata.status == '0'){ verified=false; honeyPotCheck=true;}
-
+          if(verificationdata.status == '0'){ verified=false; honeyPotCheck='FAILED';}
+ 
           setTokenInfo({
             name:name,
             symbol:symbol,
@@ -406,7 +406,8 @@ const Dashboard = () => {
             pairCreatedAt:new Date(pairCreatedAt).toLocaleDateString(),
             isHoneyPot:honeyPotCheck, 
             verified:verified,
-            blacklisted:!honeyPotCheck
+            blacklisted:!honeyPotCheck,
+            fdv:fdv
           })
           setIsLoading(false);
 
